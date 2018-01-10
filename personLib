@@ -1,0 +1,11 @@
+<person_lib>
+    <book book_id = "12777">
+        <status>TRUE</status>
+        <book_note>
+            <page>33</page>
+            <note>The Killer is Jon</note>
+        </book_note>
+        <date_add>2017-12-02</date_add>
+    </book>
+</person_lib>
+

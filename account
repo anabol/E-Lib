@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<accounts>
+    <account account_id = "1">
+        <last_name>Stiopkin</last_name>
+        <first_name>Max</first_name>
+        <regist_date>2017-10-23</regist_date>
+        <email>maxim.stiopkin@yandex.ru</email>
+    </account>
+    <account account_id="2">
+        <last_name>Petrov</last_name>
+        <first_name>Ivan</first_name>
+        <regist_date>2017-10-15</regist_date>
+        <email>petrov.petrivich@petro.ru</email>
+    </account>
+</accounts>
