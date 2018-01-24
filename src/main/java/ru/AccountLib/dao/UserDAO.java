@@ -1,4 +1,4 @@
-package ru.AccountLib.hibernate.dao;
+package ru.AccountLib.dao;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -10,4 +10,6 @@ public interface UserDAO {
     public List getAllUsers() throws SQLException;
     public UserEntity getUser(int UserEntityId);
     public void editUser(int UserEntityId, String log, String password)throws SQLException;
+    public List getUser(String log);
+    public List getUser(String log, String password);
 }

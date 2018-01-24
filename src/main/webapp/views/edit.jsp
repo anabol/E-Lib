@@ -22,6 +22,6 @@ EDIT
         <input type="text" name="password" value="${user.password}"><br />
     </label>
     <button type="submit">Submit</button>
-    <button onclick="location.href='/'">Back</button>
 </form>
+<button onclick="location.href='/logout'">Logout</button>
 </html>

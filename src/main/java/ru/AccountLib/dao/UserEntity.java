@@ -1,4 +1,4 @@
-package ru.AccountLib.hibernate.dao;
+package ru.AccountLib.dao;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -10,8 +10,18 @@ public class UserEntity {
      private int id;
      private String log;
      private String password;
+     private String role;
 
-     public UserEntity(){
+    @Column(name = "role")
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public UserEntity(){
      }
 
      @Id

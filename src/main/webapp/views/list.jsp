@@ -1,5 +1,6 @@
+
 <%@ page import="java.util.List" %>
-<%@ page import="ru.AccountLib.hibernate.dao.UserEntity" %>
+<%@ page import="ru.AccountLib.dao.UserEntity" %>
 <%@ page import="java.io.PrintWriter" %><%--
   Created by IntelliJ IDEA.
   User: MaxSt
@@ -48,7 +49,7 @@
         </div>
     </div>
             <div class="w3-container w3-grey w3-opacity w3-right-align w3-padding">
-            <button class="w3-btn w3-round-xlarge w3-red" onclick="location.href='/'">Back to main</button>
+            <button class="w3-btn w3-round-xlarge w3-red" onclick="location.href='/logout'">Logout</button>
         </div>
     </body>
 </html>

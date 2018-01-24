@@ -1,7 +1,8 @@
-package ru.AccountLib.hibernate.dao;
+package ru.AccountLib.dao;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
-import ru.AccountLib.hibernate.utils.HibernateSessionFactory;
+import ru.AccountLib.utils.HibernateSessionFactory;
 
 import javax.swing.*;
 import java.sql.SQLException;
@@ -64,6 +65,43 @@ public class UserDAOImpl implements UserDAO {
         userEntity.setLog(log);
         userEntity.setId(userEntityId);
         this.addUser(userEntity);
+    }
+
+    public List<UserEntity> getUser(String log, String password) {
+        Session session = null;
+        List<UserEntity> list = new ArrayList<UserEntity>();
+        try {
+            session = HibernateSessionFactory.getSessionFactory().openSession();
+            Query query = session.createQuery("from UserEntity where log = :paramName and password = :paramPas");
+            query.setParameter("paramName", log);
+            query.setParameter("paramPas", password);
+            list = query.list();
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
+        } finally {
+            if (session != null && session.isOpen()){
+                session.close();
+            }
+        }
+        return list;
+    }
+
+    public List<UserEntity> getUser(String log) {
+        Session session = null;
+        List<UserEntity> list = new ArrayList<UserEntity>();
+        try {
+            session = HibernateSessionFactory.getSessionFactory().openSession();
+            Query query = session.createQuery("from UserEntity where log = :paramName");
+            query.setParameter("paramName", log);
+            list = query.list();
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
+        } finally {
+            if (session != null && session.isOpen()){
+                session.close();
+            }
+        }
+        return list;
     }
 
     public UserEntity getUser(int UserEntityId) {

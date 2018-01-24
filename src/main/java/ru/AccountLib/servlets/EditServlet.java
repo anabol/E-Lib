@@ -1,6 +1,6 @@
-package ru.AccountLib.hibernate.servlets;
+package ru.AccountLib.servlets;
 
-import ru.AccountLib.hibernate.dao.Factory;
+import ru.AccountLib.dao.Factory;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

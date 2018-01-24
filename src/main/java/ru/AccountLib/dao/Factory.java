@@ -1,4 +1,4 @@
-package ru.AccountLib.hibernate.dao;
+package ru.AccountLib.dao;
 
 public class Factory {
     private static UserDAO userDAO = null;

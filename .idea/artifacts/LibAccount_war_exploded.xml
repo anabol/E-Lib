@@ -7,6 +7,7 @@
           <element id="module-output" name="LibAccount" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.1" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.34" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:5.0.1.Final" />
           <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.0.Final" />
@@ -46,7 +47,6 @@
           <element id="library" level="project" name="Maven: au.net.ocean.maven.plugin:maven-plugin:1.0" />
           <element id="library" level="project" name="Maven: org.apache.maven:maven-plugin-api:3.5.2" />
           <element id="library" level="project" name="Maven: org.apache.maven:maven-model:3.5.2" />
-          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.5" />
           <element id="library" level="project" name="Maven: org.apache.maven:maven-artifact:3.5.2" />
           <element id="library" level="project" name="Maven: org.eclipse.sisu:org.eclipse.sisu.plexus:0.3.3" />
           <element id="library" level="project" name="Maven: javax.enterprise:cdi-api:1.0" />

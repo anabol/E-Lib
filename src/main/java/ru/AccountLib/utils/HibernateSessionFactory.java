@@ -1,4 +1,4 @@
-package ru.AccountLib.hibernate.utils;
+package ru.AccountLib.utils;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
