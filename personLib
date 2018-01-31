@@ -1,5 +1,5 @@
 <person_lib>
-    <book book_id = "12777">
+    <book id = "12777">
         <status>TRUE</status>
         <book_note>
             <page>33</page>

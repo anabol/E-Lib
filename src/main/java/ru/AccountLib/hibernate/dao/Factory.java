@@ -2,6 +2,7 @@ package ru.AccountLib.hibernate.dao;
 
 public class Factory {
     private static UserDAO userDAO = null;
+    private static BookDAO bookDAO = null;
     private static Factory instance = null;
 
     public static synchronized Factory getInstance(){
@@ -17,4 +18,13 @@ public class Factory {
         }
         return userDAO;
     }
+
+    public static BookDAO getBookDAO() {
+        if (bookDAO == null){
+            bookDAO = new BookDAOImpl();
+        }
+        return bookDAO;
+    }
+
+
 }

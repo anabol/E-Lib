@@ -1,6 +1,8 @@
 package ru.AccountLib.hibernate.dao;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
+import ru.AccountLib.hibernate.entity.UserEntity;
 import ru.AccountLib.hibernate.utils.HibernateSessionFactory;
 
 import javax.swing.*;
@@ -25,6 +27,28 @@ public class UserDAOImpl implements UserDAO {
         }
     }
 
+    public UserEntity getUser(String log, String password) {
+        Session session = null;
+        List<UserEntity> list = new ArrayList<UserEntity>();
+        try {
+            session = HibernateSessionFactory.getSessionFactory().openSession();
+            Query query = session.createQuery("from UserEntity where log = :paramName and password = :paramPas");
+            query.setParameter("paramName", log);
+            query.setParameter("paramPas", password);
+            list = query.list();
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
+        } finally {
+            if (session != null && session.isOpen()){
+                session.close();
+            }
+        }
+        if (list.isEmpty()){
+            return null;
+        }else {
+            return list.get(0);
+        }
+    }
 //    public void deleteUser(UserEntity userEntity) throws SQLException {
 //        Session session = null;
 //        try {

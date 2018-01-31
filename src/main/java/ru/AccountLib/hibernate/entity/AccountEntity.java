@@ -1,4 +1,4 @@
-package ru.AccountLib.hibernate.dao;
+package ru.AccountLib.hibernate.entity;
 
 import javax.persistence.*;
 
