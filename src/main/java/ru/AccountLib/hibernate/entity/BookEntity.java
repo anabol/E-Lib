@@ -62,7 +62,7 @@ public class BookEntity implements Serializable{
     @Basic
     @Column(name = "book_text", nullable = true)
     public String getBookText() {
-        return bookText;
+        return bookText.replace("","");
     }
 
     public void setBookText(String bookText) {

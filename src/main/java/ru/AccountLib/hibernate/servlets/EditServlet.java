@@ -25,7 +25,8 @@ public class EditServlet extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             Factory.getInstance().getUserDAO().editUser(Integer.parseInt(req.getParameter("id")),
-                    req.getParameter("log"), req.getParameter("password"));
+                    req.getParameter("log"), req.getParameter("password"),
+                    req.getParameter("gender"), req.getParameter("role"));
         } catch (SQLException e) {
             e.printStackTrace();
         }

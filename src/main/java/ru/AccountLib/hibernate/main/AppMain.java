@@ -110,14 +110,19 @@ public class AppMain {
 //             ) {
 //            System.out.println(user);
 //        }
-        List<BookEntity> books = Factory.getInstance().getBookDAO().getAllBooks();
-        for (BookEntity book : books
-             ) {
-            System.out.println(book);
-        }
+//        List<BookEntity> books = Factory.getInstance().getBookDAO().getAllBooks();
+//        for (BookEntity book : books
+//             ) {
+//            System.out.println(book);
+//        }
 //        List<TableNameEntity> tables = Factory.getInstance().getTableNameDAO().getAllTableName();
 //        for (TableNameEntity table : tables){
 //            System.out.println(table);
 //        }
+
+        BookEntity book = Factory.getInstance().getBookDAO().getBook(1);
+        System.out.println(
+                book
+        );
     }
 }

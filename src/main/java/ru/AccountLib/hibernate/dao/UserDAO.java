@@ -15,7 +15,7 @@ public interface UserDAO {
 //    public void deleteUser(UserEntity userEntity) throws SQLException;
     public List getAllUsers() throws SQLException;
     public UserEntity getUser(int UserEntityId);
-    public void editUser(int UserEntityId, String log, String password)throws SQLException;
+    public void editUser(int UserEntityId, String log, String password, String gender, String role)throws SQLException;
     public UserEntity getUser(String log, String password);
     Set<BookEntity> getBookForUser(int userEntityId);
 

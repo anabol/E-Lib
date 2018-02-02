@@ -96,11 +96,13 @@ public class UserDAOImpl implements UserDAO {
         }
     }
 
-    public void editUser(int userEntityId, String log, String password) throws SQLException {
+    public void editUser(int userEntityId, String log, String password, String gender, String role) throws SQLException {
         UserEntity userEntity = this.getUser(userEntityId);
         userEntity.setPassword(password);
         userEntity.setLog(log);
         userEntity.setId(userEntityId);
+        userEntity.setGender(gender);
+        userEntity.setRole(role);
         this.addUser(userEntity);
     }
 

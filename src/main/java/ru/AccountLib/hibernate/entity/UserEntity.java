@@ -18,6 +18,13 @@ public class UserEntity implements Serializable{
     public UserEntity() {
     }
 
+    public UserEntity(String password, String log, String gender) {
+        this.password = password;
+        this.log = log;
+        this.gender = gender;
+        this.role = "USER";
+    }
+
     @Id
     @Column(name = "id", nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
