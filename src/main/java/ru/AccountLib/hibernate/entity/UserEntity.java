@@ -1,6 +1,7 @@
 package ru.AccountLib.hibernate.entity;
 
 import javax.persistence.*;
+//import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,6 +14,9 @@ public class UserEntity implements Serializable{
     private String log;
     private String role;
     private String gender;
+
+    public UserEntity() {
+    }
 
     @Id
     @Column(name = "id", nullable = false, unique = true)
@@ -109,5 +113,17 @@ public class UserEntity implements Serializable{
 
     public void removeUserLib(UserLibEntity userLibEntity){
         getUserLibs().remove(userLibEntity);
+    }
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", password='" + password + '\'' +
+                ", log='" + log + '\'' +
+                ", role='" + role + '\'' +
+                ", gender='" + gender + '\'' +
+//                ", userLibs=" + userLibs +
+                '}';
     }
 }

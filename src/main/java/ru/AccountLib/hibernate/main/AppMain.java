@@ -1,13 +1,29 @@
 package ru.AccountLib.hibernate.main;
 
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.proxy.HibernateProxy;
 import ru.AccountLib.hibernate.dao.*;
 import ru.AccountLib.hibernate.entity.BookEntity;
+import ru.AccountLib.hibernate.entity.TableNameEntity;
+import ru.AccountLib.hibernate.entity.UserEntity;
+import ru.AccountLib.hibernate.entity.UserLibEntity;
+import ru.AccountLib.hibernate.utils.HibernateSessionFactory;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceUnit;
+import javax.xml.ws.FaultAction;
 import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class AppMain {
+
+//    @PersistenceUnit
+//    static EntityManager emf;
 
     public static void main(String[] args) throws SQLException {
 //        System.out.println("Hibernate tutorial");
@@ -56,10 +72,52 @@ public class AppMain {
 //            System.out.println("Имя:" + users.get(i).getLog() + ", Password:" + users.get(i).getPassword() + ", ID:" + users.get(i).getId());
 //        }
 
+//        List<BookEntity> books = Factory.getInstance().getBookDAO().getAllBooks();
+//        Iterator iterator = books.iterator();
+//        while (iterator.hasNext()){
+//            System.out.println(iterator.next().toString());
+//        }
+//        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+//        UserDAO userDAO = new UserDAOImpl();
+//        userDAO.setSession(session);
+//        Transaction tx = session.beginTransaction();
+//
+//        UserEntity userEntity = userDAO.getUser(1);
+//
+//        Set<UserLibEntity> userLibs = userEntity.getUserLibs();
+//
+//        for (UserLibEntity userLib: userLibs) {
+//            System.out.println(userLib.getBook());
+//        }
+//
+//        tx.commit();
+//        session.close();
+//        UserEntity user = Factory.getInstance().getUserDAO().getUser(1);
+//        Set<UserLibEntity> userLibs = user.getUserLibs();
+
+//        Set<BookEntity> books = Factory.getInstance().getUserDAO().getBookForUser(1);
+////        Set<UserLibEntity> userLibs = user.getUserLibs();
+//        for (BookEntity book : books){
+//            System.out.println(book);
+//        }
+//        List<UserLibEntity> userLibEntities = Factory.getInstance().getUserLibDAO().findAll();
+//        System.out.println("1111");
+//        for (UserLibEntity userLib : userLibEntities){
+//            System.out.println(userLib);
+//        }
+//        List<UserEntity> users = Factory.getInstance().getUserDAO().getAllUsers();
+//        for (UserEntity user: users
+//             ) {
+//            System.out.println(user);
+//        }
         List<BookEntity> books = Factory.getInstance().getBookDAO().getAllBooks();
-        Iterator iterator = books.iterator();
-        while (iterator.hasNext()){
-            System.out.println(iterator.next().toString());
+        for (BookEntity book : books
+             ) {
+            System.out.println(book);
         }
+//        List<TableNameEntity> tables = Factory.getInstance().getTableNameDAO().getAllTableName();
+//        for (TableNameEntity table : tables){
+//            System.out.println(table);
+//        }
     }
 }

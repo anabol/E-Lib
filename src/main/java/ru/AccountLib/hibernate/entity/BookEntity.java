@@ -1,20 +1,26 @@
 package ru.AccountLib.hibernate.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "book", schema = "account")
-public class BookEntity {
+public class BookEntity implements Serializable{
     private int bookId;
     private String bookName;
     private String bookAuth;
-    private byte[] bookText;
+//    private byte[] bookText;
+    private String bookText;
+
+    public BookEntity() {
+    }
 
     @Id
-    @Column(name = "book_id", nullable = false)
+    @Column(name = "book_id", nullable = false, unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getBookId() {
         return bookId;
     }
@@ -43,43 +49,53 @@ public class BookEntity {
         this.bookAuth = bookAuth;
     }
 
+//    @Basic
+//    @Column(name = "book_text", nullable = true)
+//    public byte[] getBookText() {
+//        return bookText;
+//    }
+//
+//    public void setBookText(byte[] bookText) {
+//        this.bookText = bookText;
+//    }
+
     @Basic
-    @Column(name = "book-text", nullable = true)
-    public byte[] getBookText() {
+    @Column(name = "book_text", nullable = true)
+    public String getBookText() {
         return bookText;
     }
 
-    public void setBookText(byte[] bookText) {
+    public void setBookText(String bookText) {
         this.bookText = bookText;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        BookEntity that = (BookEntity) o;
-
-        if (bookId != that.bookId) return false;
-        if (bookName != null ? !bookName.equals(that.bookName) : that.bookName != null) return false;
-        if (bookAuth != null ? !bookAuth.equals(that.bookAuth) : that.bookAuth != null) return false;
-        if (!Arrays.equals(bookText, that.bookText)) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = bookId;
-        result = 31 * result + (bookName != null ? bookName.hashCode() : 0);
-        result = 31 * result + (bookAuth != null ? bookAuth.hashCode() : 0);
-        result = 31 * result + Arrays.hashCode(bookText);
-        return result;
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//
+//        BookEntity that = (BookEntity) o;
+//
+//        if (bookId != that.bookId) return false;
+//        if (bookName != null ? !bookName.equals(that.bookName) : that.bookName != null) return false;
+//        if (bookAuth != null ? !bookAuth.equals(that.bookAuth) : that.bookAuth != null) return false;
+//        if (!Arrays.equals(bookText, that.bookText)) return false;
+//
+//        return true;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        int result = bookId;
+//        result = 31 * result + (bookName != null ? bookName.hashCode() : 0);
+//        result = 31 * result + (bookAuth != null ? bookAuth.hashCode() : 0);
+//        result = 31 * result + Arrays.hashCode(bookText);
+//        return result;
+//    }
 
     private Set<UserLibEntity> userLibs = new HashSet<UserLibEntity>();
 
-    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "bookEntity", cascade = CascadeType.ALL, orphanRemoval = true)
     public Set<UserLibEntity> getUserLibs() {
         return userLibs;
     }
@@ -89,11 +105,21 @@ public class BookEntity {
     }
 
     public void addUserLib(UserLibEntity userLibEntity){
-        userLibEntity.setBook(this);
+        userLibEntity.setBookEntity(this);
         getUserLibs().add(userLibEntity);
     }
 
     public void removeUserLib(UserLibEntity userLibEntity){
         getUserLibs().remove(userLibEntity);
+    }
+
+    @Override
+    public String toString() {
+        return "BookEntity{" +
+                "bookId=" + bookId +
+                ", bookName='" + bookName + '\'' +
+                ", bookAuth='" + bookAuth + '\'' +
+                ", bookText=" + '\n' + bookText +
+                '}';
     }
 }

@@ -1,9 +1,13 @@
 package ru.AccountLib.hibernate.dao;
 
+import org.hibernate.Session;
+import ru.AccountLib.hibernate.entity.BookEntity;
 import ru.AccountLib.hibernate.entity.UserEntity;
+import ru.AccountLib.hibernate.entity.UserLibEntity;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Set;
 
 public interface UserDAO {
     public void addUser(UserEntity userEntity) throws SQLException;
@@ -13,4 +17,7 @@ public interface UserDAO {
     public UserEntity getUser(int UserEntityId);
     public void editUser(int UserEntityId, String log, String password)throws SQLException;
     public UserEntity getUser(String log, String password);
+    Set<BookEntity> getBookForUser(int userEntityId);
+
+//    void setSession(Session session);
 }
