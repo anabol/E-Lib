@@ -16,6 +16,12 @@ public class UserLibEntity implements Serializable{
     public UserLibEntity() {
     }
 
+    public UserLibEntity(UserEntity user, BookEntity bookEntity) {
+        this.user = user;
+        this.bookEntity = bookEntity;
+        this.addDate = new Date();
+    }
+
     @Id
     @Column(name = "id", nullable = false)
     public int getId() {
@@ -27,6 +33,7 @@ public class UserLibEntity implements Serializable{
     }
 
     @Temporal(TemporalType.DATE)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "add_date", nullable = true, insertable = true, updatable = true)
     public Date getAddDate() {
         return addDate;

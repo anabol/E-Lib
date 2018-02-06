@@ -15,10 +15,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceUnit;
 import javax.xml.ws.FaultAction;
 import java.sql.SQLException;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class AppMain {
 
@@ -100,29 +97,46 @@ public class AppMain {
 //        for (BookEntity book : books){
 //            System.out.println(book);
 //        }
+//        BookEntity bookEntity = Factory.getInstance().getBookDAO().getBook(1);
+//        UserEntity userEntity = Factory.getInstance().getUserDAO().getUser(2);
+//        boolean result = Factory.getInstance().getUserLibDAO().addBookInUserLib(1, 9);
 //        List<UserLibEntity> userLibEntities = Factory.getInstance().getUserLibDAO().findAll();
-//        System.out.println("1111");
+//        System.out.println(result);
+//
 //        for (UserLibEntity userLib : userLibEntities){
 //            System.out.println(userLib);
 //        }
+
 //        List<UserEntity> users = Factory.getInstance().getUserDAO().getAllUsers();
 //        for (UserEntity user: users
 //             ) {
 //            System.out.println(user);
 //        }
+
 //        List<BookEntity> books = Factory.getInstance().getBookDAO().getAllBooks();
 //        for (BookEntity book : books
 //             ) {
 //            System.out.println(book);
 //        }
+
+//        Factory.getInstance().getTableNameDAO().addObj(73, 88);
 //        List<TableNameEntity> tables = Factory.getInstance().getTableNameDAO().getAllTableName();
 //        for (TableNameEntity table : tables){
 //            System.out.println(table);
 //        }
 
-        BookEntity book = Factory.getInstance().getBookDAO().getBook(1);
-        System.out.println(
-                book
-        );
+//        BookEntity book = Factory.getInstance().getBookDAO().getBook(1);
+//        System.out.println(
+//                book
+//        );
+//        Set<UserLibEntity> userLibs = Factory.getUserDAO().getUserLibs(1);
+//        for (UserLibEntity userLibEntity : userLibs){
+//            System.out.println(userLibEntity.getAddDate());
+//        }
+
+//        Factory.getInstance().getUserLibDAO().deleteUserBook(2, 1);
+        int bookId = 4;
+        String bookText = "789";
+        Factory.getInstance().getBookDAO().updateTextBook(bookId, bookText);
     }
 }

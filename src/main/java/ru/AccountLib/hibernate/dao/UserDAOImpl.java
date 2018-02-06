@@ -2,6 +2,7 @@ package ru.AccountLib.hibernate.dao;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import ru.AccountLib.hibernate.dao.interfaceDAO.UserDAO;
 import ru.AccountLib.hibernate.entity.BookEntity;
 import ru.AccountLib.hibernate.entity.UserEntity;
 import ru.AccountLib.hibernate.entity.UserLibEntity;
@@ -160,5 +161,22 @@ public class UserDAOImpl implements UserDAO {
             }
         }
         return books;
+    }
+
+    public Set<UserLibEntity> getUserLibs(int userEntityId){
+        Session session = null;
+        Set<UserLibEntity> userLibs = new HashSet<UserLibEntity>();
+        try {
+            session = HibernateSessionFactory.getSessionFactory().openSession();
+            UserEntity userEntity = session.get(UserEntity.class, userEntityId);
+            userLibs = userEntity.getUserLibs();
+        } catch (Exception e){
+        JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка I/O", JOptionPane.OK_OPTION);
+        } finally {
+            if (session != null && session.isOpen()){
+                session.close();
+            }
+        }
+        return userLibs;
     }
 }

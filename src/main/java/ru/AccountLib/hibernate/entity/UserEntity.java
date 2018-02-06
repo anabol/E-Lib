@@ -104,7 +104,7 @@ public class UserEntity implements Serializable{
 
     private Set<UserLibEntity> userLibs = new HashSet<UserLibEntity>();
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     public Set<UserLibEntity> getUserLibs() {
         return userLibs;
     }

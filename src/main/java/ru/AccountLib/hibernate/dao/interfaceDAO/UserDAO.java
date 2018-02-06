@@ -1,4 +1,4 @@
-package ru.AccountLib.hibernate.dao;
+package ru.AccountLib.hibernate.dao.interfaceDAO;
 
 import org.hibernate.Session;
 import ru.AccountLib.hibernate.entity.BookEntity;
@@ -18,6 +18,6 @@ public interface UserDAO {
     public void editUser(int UserEntityId, String log, String password, String gender, String role)throws SQLException;
     public UserEntity getUser(String log, String password);
     Set<BookEntity> getBookForUser(int userEntityId);
-
+    Set<UserLibEntity> getUserLibs(int userEntityId);
 //    void setSession(Session session);
 }

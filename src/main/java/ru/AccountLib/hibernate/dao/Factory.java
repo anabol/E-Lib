@@ -1,5 +1,10 @@
 package ru.AccountLib.hibernate.dao;
 
+import ru.AccountLib.hibernate.dao.interfaceDAO.BookDAO;
+import ru.AccountLib.hibernate.dao.interfaceDAO.TableNameDAO;
+import ru.AccountLib.hibernate.dao.interfaceDAO.UserDAO;
+import ru.AccountLib.hibernate.dao.interfaceDAO.UserLibDAO;
+
 public class Factory {
     private static UserDAO userDAO = null;
     private static BookDAO bookDAO = null;
